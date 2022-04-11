@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "19001458-3609-4e14-a403-47be58feb9cc",
+		"name": "enrollment system api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "fetchStudents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/fetchStudents?semester=2022fall",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"fetchStudents"
+					],
+					"query": [
+						{
+							"key": "semester",
+							"value": "2022fall"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetchClasses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/fetchClasses?id=2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"fetchClasses"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get classes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/classes/classB",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"classes",
+						"classB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Michael\",\n    \"lastName\": \"Wong\",\n    \"nationality\": \"Singapore\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/students",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify student",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"firstName\": \"Michael\",\n    \"lastName\": \"Wong\",\n    \"nationality\": \"US\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/students",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start new semester",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"2022fall\",\n    \"startDate\": \"2022-08-27\",\n    \"endDate\": \"2022-08-27\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/semesters",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"semesters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"3A\",\n    \"credit\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/classes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"classes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enroll",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"semester\": \"2022fall\",\n    \"id\": 1,\n    \"class\": \"3A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/enrollments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"enrollments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "un-enroll",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"semester\": \"2022fall\",\n    \"id\": 1,\n    \"class\": \"3A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/enrollments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"enrollments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
