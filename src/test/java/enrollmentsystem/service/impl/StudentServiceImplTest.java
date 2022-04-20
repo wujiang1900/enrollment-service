@@ -1,39 +1,29 @@
 package enrollmentsystem.service.impl;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
+import enrollmentsystem.exception.StudentInfoNotFoundException;
+import enrollmentsystem.model.dto.StudentDto;
+import enrollmentsystem.model.mapper.StudentMapperImpl;
+import enrollmentsystem.repository.StudentRepository;
+import enrollmentsystem.repository.entity.Student;
+import enrollmentsystem.service.SequenceGeneratorService;
+import enrollmentsystem.service.StudentService;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import enrollmentsystem.service.SequenceGeneratorService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import enrollmentsystem.model.dto.StudentDto;
-import enrollmentsystem.exception.StudentInfoNotFoundException;
-import enrollmentsystem.model.mapper.StudentMapperImpl;
-import enrollmentsystem.repository.StudentRepository;
-import enrollmentsystem.repository.entity.Student;
-import enrollmentsystem.service.StudentService;
-
-
 import static enrollmentsystem.util.MockedObjects.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests all {@link StudentService} service methods.

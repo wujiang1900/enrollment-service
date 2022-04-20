@@ -5,12 +5,15 @@ import javax.validation.constraints.NotNull;
 
 import enrollmentsystem.model.validation.CreationValidationGroup;
 import enrollmentsystem.model.validation.UniqueStudentId;
+import enrollmentsystem.repository.entity.Enrollment;
 import enrollmentsystem.repository.entity.Student;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.Set;
 
 /**
  * A Data Transformation Object for create/update the {@link Student} document.
@@ -37,4 +40,7 @@ public class StudentDto {
 
 	@Schema(description = "Nationality of the Student.", example = "US", required = false)
 	private String nationality;
+
+	// todo: make EnrollmentDto instead of using Enrollment entity
+	private Set<Enrollment> enrollments;
 }

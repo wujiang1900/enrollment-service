@@ -80,17 +80,23 @@ $ docker exec -it mongodb bash
 
 3. Hibernate implementation of javax validations are utilized to validate the json input data.
 
-4. ControllerAdvice is utilized to handle error responses to the clients.
+4. ControllerAdvice is utilized to centralize error handling and construct error responses to the clients.
 
 5. Dto objects are utilized to provide a clean separation of entity DB objects in favor of clean abstraction of persistence layer. Mapstruct library is utilized to provide data transformation of dto and entity objects.
 
-6. Lombok library is utilized for complie-time code auto generation (getters/setters/contrctors, etc...).
+6. Lombok library is utilized for compiling-time code auto generation (getters/setters/contrctors, etc...).
 
 7. Comprehensive test cases are developed to provide unit testing and integration testing to ensure code quality and facilitate future enhancement/maintenance.
 
 8. Spring properties/configuration/injection are utilized to ease future enhancement/maintenance efforts.
 
 9. Open API (Swagger) is utilized to generate API documentation accessible through browser.
+
+10. Future improvements:
+    a. k8s to replace docker compose.
+    b. Redis cache to replace spring cache.
+    c. security and auth.
+    d. Spring webflux for enrollment controller to handle possible very large # of concurrent requests in the future.
 
 ## API Use Cases
 
@@ -166,7 +172,13 @@ $ docker exec -it mongodb bash
 
 #### Drop a student from a class.
     Method: Delete
-    Url: http://localhost:8080/enrollments?id=1&class=3A
+    Url: http://localhost:8080/enrollments
+    Request Body:
+      {
+        "semester": "2022fall",
+        "id": 1,
+        "class": "3A"
+      }
 
 ## CI/CD Using AWS CodePipeline
 

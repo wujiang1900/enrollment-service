@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode()
 @ToString
 public class Enrollment {
 	private String semester;

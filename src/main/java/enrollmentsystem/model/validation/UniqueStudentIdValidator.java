@@ -28,8 +28,7 @@ public class UniqueStudentIdValidator
 	@Override
 	public boolean isValid(Long value, ConstraintValidatorContext context) {
 
-		// Checks the id already exists in the database. If it does, then it is
-		// invalid.
+		// Checks the id already exists in the database. If it does, then it is invalid.
 		if (value != null && studentRepository.existsById(value)) {
 			log.error(format("Student id {0} already exists", value));
 			return false;
